@@ -6,19 +6,24 @@
 
 > Describe the problem or mission statement of the project in 2 - 3 sentences.
 
+We're doing a word search game. The user will have a list of words to find. Everytime the user finds a word he'll mark it. Of course the user will have a timer, and probably two levels to play.
+
 ## Developers
 
-- Developer 1: Role
+- Developer 1: Makah
+ Role: write Javascript
   - Portfolio
-  - Github
+  - Github: MAKAHAL
   - LinkedIn
-- Developer 2: Role
+- Developer 2: Carlos
+Role:write Javascript
   - Portfolio
-  - Github
+  - Github: andres1705
   - LinkedIn
-- Developer 3: Role
+- Developer 3: Zaid
+ Role:write html & css
   - Portfolio
-  - Github
+  - Github:Zaidtx
   - LinkedIn
 
 ## Animated Gifs/Pictures of App
