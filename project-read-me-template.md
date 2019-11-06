@@ -20,7 +20,7 @@ Role:write Javascript
   - Portfolio
   - Github: andres1705
   - LinkedIn
-- Developer 3: Zaid
+- Developer 3: Zaid.
  Role:write html & css
   - Portfolio
   - Github:Zaidtx
