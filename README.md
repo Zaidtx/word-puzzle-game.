@@ -1,3 +1,4 @@
+# word-puzzle-game
 # Name of Project
 
 > [Live Site](Put the deployed link here once you have it)
