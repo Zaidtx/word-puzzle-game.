@@ -6,13 +6,19 @@
 height: 100px;
 width: 40%;
 text-align: center;
-margin-left: 400px;
+margin-left: 30%;
+
+
 }
 body{
-    background-image: url(../images/yay.jpg)
+  background-size: cover;
+    background-image: url(../images/istockphoto-838218772-612x612.jpg)
+    
+    
 }
 h1{
     text-align: center;
+   
    
 }
 /* Full-width input fields */
@@ -24,46 +30,25 @@ h1{
   border: none;
   background: #e2ca5f;
  color: rgb(30, 79, 107);
+<<<<<<< HEAD
  }
+=======
+ text-align: center;
+}
+>>>>>>> 4341074c48ca340f157611bc711f4e030ea1c98d
 
 input[type=text]:focus, input[type=password]:focus {
-  background-color: rgb(90, 40, 40);
+  background-color: rgb(196, 181, 181);
   outline: none;
-
+text-align: center;
 
 }
 
-
-/* Set a style for all buttons */
-button { 
-    text-align: center;
-  background-color: rgb(209, 134, 91);
-  color: rgb(48, 39, 39);
-  padding: 14px 10px;
-  margin: 50px;
-  margin-left: 24%;
-  border: none;
-  cursor: pointer;
-  width: 90%;
-  opacity: 0.9;
-
- font-size: 200%;
-}
-
-button:hover {
-  opacity:1;
-}
-
-/* Float signup buttons and add an equal width */
- .signupbtn {
-  float: left;
-  width: 50%;
+a{
   text-align: center;
-}
+  font-size: 200%;
 
-/* Add padding to container elements */
-.container {
-  align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch | start | end | baseline | first baseline | last baseline + ... safe | unsafe;
+color: yellow;
 }
 
 /* Clear floats */
@@ -71,6 +56,7 @@ button:hover {
   content: "";
   clear: both;
   display: table;
+  text-align: center;
 }
 
 /* Change styles for signup button on extra small screens */
@@ -78,8 +64,10 @@ button:hover {
   .signupbtn {
     width: 100%;
     text-align: center;
-    margin: 50%;
+    margin: 30%;
+    text-align: center;
   }
+<<<<<<< HEAD
 }
 /* Grid layout */
 .grid-container {
@@ -97,4 +85,7 @@ button:hover {
   padding: 20px 0;
   font-size: 30px;
   text-align: center;
+=======
+
+>>>>>>> 4341074c48ca340f157611bc711f4e030ea1c98d
 }
