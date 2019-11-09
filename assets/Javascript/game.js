@@ -15,6 +15,3 @@
   firebase.initializeApp(firebaseConfig);
 
   console.log(firebase)
-  function myFunction() {
-    document.getElementById("demo").innerHTML = "Hello World";
-  }
