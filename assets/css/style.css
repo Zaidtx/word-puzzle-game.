@@ -8,6 +8,7 @@
 =======
 * {box-sizing: border-box}
 
+
 #form{
 
 height: 100px;
@@ -71,7 +72,7 @@ button:hover {
 
 /* Add padding to container elements */
 .container {
-  padding: 16px;
+  align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch | start | end | baseline | first baseline | last baseline + ... safe | unsafe;
 }
 
 /* Clear floats */
