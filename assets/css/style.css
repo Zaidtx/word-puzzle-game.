@@ -6,11 +6,15 @@
 height: 100px;
 width: 40%;
 text-align: center;
-margin-left: 400px;
-text-align: center;
+margin-left: 30%;
+
+
 }
 body{
-    background-image: url(../images/yay.jpg)
+  background-size: cover;
+    background-image: url(../images/istockphoto-838218772-612x612.jpg)
+    
+    
 }
 h1{
     text-align: center;
@@ -30,7 +34,7 @@ h1{
 }
 
 input[type=text]:focus, input[type=password]:focus {
-  background-color: rgb(90, 40, 40);
+  background-color: rgb(196, 181, 181);
   outline: none;
 text-align: center;
 
@@ -39,7 +43,8 @@ text-align: center;
 a{
   text-align: center;
   font-size: 200%;
-  margin-left: 50%;
+
+color: yellow;
 }
 
 /* Clear floats */
@@ -55,7 +60,7 @@ a{
   .signupbtn {
     width: 100%;
     text-align: center;
-    margin: 50%;
+    margin: 30%;
     text-align: center;
   }
 
