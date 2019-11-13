@@ -97,6 +97,8 @@ color: yellow;
    
     }
 
+
+    
     #left {
       grid-area: left;
     }
@@ -148,3 +150,4 @@ color: yellow;
   font-size: 200px;
   text-align: center;
 }
+

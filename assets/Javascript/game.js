@@ -1,4 +1,33 @@
 
+
+
+function buildQueryURL() {
+  
+  const queryURL = "https://od-api.oxforddictionaries.com/api/v2";
+
+  
+  const queryParams = { "api-key": "632299bb4f685bac7a7e615a2459ce3e" };
+
+  
+  queryParams.q = $("#search-words")
+    .val()
+    .trim();
+
+    
+    $.ajaxSetup({
+      headers: { '93ed2487': '632299bb4f685bac7a7e615a2459ce3e' }
+    });
+
+    
+    const startGame = $("#start-game")
+    .val()
+    .trim();
+
+  if (parseInt(startGame)) {
+    queryParams.search_words = startGame + "10";
+  }
+
+
 (function() {
 
   // Web app's Firebase configuration
