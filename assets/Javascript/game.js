@@ -84,21 +84,9 @@ console.log("user name" +name)
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
   
 
  
+})
+
 }
