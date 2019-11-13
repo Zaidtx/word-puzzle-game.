@@ -98,7 +98,6 @@ color: yellow;
     }
 
 
-    
     #left {
       grid-area: left;
     }
@@ -143,6 +142,14 @@ color: yellow;
   text-align: center;
   margin-left: 17%;
   grid-area: wrap;
+
+}
+
+  
+#countdowntimer{
+  font-size: 200px;
+  text-align: center;
+
 }
 
   
@@ -150,4 +157,3 @@ color: yellow;
   font-size: 200px;
   text-align: center;
 }
-
