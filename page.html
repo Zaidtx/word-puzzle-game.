@@ -101,6 +101,22 @@
 
 
 
+    <script type="text/javascript">
+        var timeleft = 10;
+        var downloadTimer = setInterval(function () {
+            timeleft--;
+            document.getElementById("countdowntimer").textContent = timeleft;
+            if (timeleft <= 0)
+                clearInterval(downloadTimer);
+        }, 1000);
+
+        window.setTimeout(function(){
+            alert('start!')
+        }, 10 * 1000);
+
+
+
+
 
 
 
