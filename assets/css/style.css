@@ -82,17 +82,18 @@ color: yellow;
   }
   
   .grid-container > div {
+   
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
-    
+   
     }
 
 
 
-
-
-/*djdjl
-}
+#btn{
+  color: black;
+  background-color: rgb(185, 105, 118);
+  margin-left: 7%;
 }
