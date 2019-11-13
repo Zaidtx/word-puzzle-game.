@@ -1,5 +1,5 @@
 
-
+(function() {
 
   // Web app's Firebase configuration
   const firebaseConfig = {
@@ -15,3 +15,39 @@
   firebase.initializeApp(firebaseConfig);
 
   console.log(firebase)
+
+  // Get elements 
+
+ 
+
+  const txtEmail = $('#txtEmail');
+  const txtPassword = $('#txtPassword');
+  const btnLogin = $('#btnLogin');
+  const btnSignUp = $('#btnSignUp');
+  const btnLogout = $('#btnLogout');
+
+  // add login event
+
+btnLogin.addEventListner('click', e => {
+  const email = txtEmail.value;
+  const pass = txtPassword.value;
+  const auth = firebase.auth();
+
+// sign in
+
+const promise = auth.signInWithEmailAndPassword(email,pass);
+
+promise.catch(e => console.log(e.message));
+
+});
+
+
+
+
+
+}());
+
+  
+  
+  
+
