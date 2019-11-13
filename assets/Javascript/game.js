@@ -1,5 +1,6 @@
 
 
+
 function buildQueryURL() {
   
   const queryURL = "https://od-api.oxforddictionaries.com/api/v2";
@@ -27,6 +28,8 @@ function buildQueryURL() {
   }
 
 
+(function() {
+
   // Web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyBriYEsnpax18nummPt1PEm5rN6qD0qxx8",
@@ -41,3 +44,41 @@ function buildQueryURL() {
   firebase.initializeApp(firebaseConfig);
 
   console.log(firebase)
+
+
+
+ 
+
+  const txtEmail = $('#txtEmail');
+  const txtPassword = $('#txtPassword');
+  const btnLogin = $('#btnLogin');
+  const btnSignUp = $('#btnSignUp');
+  const btnLogout = $('#btnLogout');
+
+  // add login event
+
+btnLogin.addEventListner('click', e => {
+  const email = txtEmail.value;
+  const pass = txtPassword.value;
+  const auth = firebase.auth();
+
+// sign in
+
+const promise = auth.signInWithEmailAndPassword(email,pass);
+
+promise.catch(e => console.log(e.message));
+
+});
+
+
+
+
+
+}());
+
+  
+  
+  
+
+ 
+
