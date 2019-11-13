@@ -72,22 +72,37 @@ color: yellow;
 
 .grid-container {
     display: grid;
-    grid-template-columns: 80px 80px 80px 80px 80px 80px ;
-    grid-gap: 1px;
-
-    padding: 10px;
-    
-    
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "left right"
+    "wrap wrap"
+    ;
     
   }
+
+  #puzzle {
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px 80px 80px ;
+    grid-gap: 1px;
+    padding: 10px;
+  }
   
-  .grid-container > div {
+  #puzzle > div {
    
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
    
+    }
+
+    #left {
+      grid-area: left;
+    }
+
+    #right {
+      grid-area: right;
     }
 
 #btnLogIn {
@@ -108,7 +123,28 @@ color: yellow;
 
 #btn{
   color: black;
-  background-color: rgb(185, 105, 118);
-  margin-left: 7%;
+  background-color: rgb(241, 201, 19);
+  margin-left: 3%;
 }
 
+
+
+#wrap
+{ padding: 15px;
+  margin: 5px 0 22px 0;
+  background-color: rgb(241, 201, 19);
+  height: 48%;
+  width: 66%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  color:black;
+  text-align: center;
+  margin-left: 17%;
+  grid-area: wrap;
+}
+
+  
+#countdowntimer{
+  font-size: 200px;
+  text-align: center;
+}

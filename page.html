@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,63 +11,112 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
+
 <body>
-    
+
+
+    <button id="btn" type="button" class="btn btn-warning">Restart</button>
+    <button id="btn" type="button" class="btn btn-danger">Log out</button>
 
 
     <br>
     <br>
+    <div class="grid-container">
+        <div id='left'>
+            <div id='puzzle'>
+                <div>a</div>
+                <div>b</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>d</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>7</div>
+                <div>8</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
+
+        </div>
+
+        <div id='right'>
+            <span id="countdowntimer">10</span>
+        </div>
+
+        <div id="wrap">
+            
+            <div id="main" class="container clear-top">
+                <p>LEVEL 1 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SCORE: &nbsp; &nbsp; &nbsp;&nbsp;
+                    &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; TIMER:
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+        
     
 
-<button id= "btn" type="button" class="btn btn-success">Start</button>
-<button id="btn" type= "button" class="btn btn-warning">Restart</button>
-<button id="btn" type="button" class="btn btn-danger">Log out</button>
 
 
-<div class="grid-container"> 
-    
-    <div>a</div>
-    <div>b</div>
-    <div></div>  
-    <div></div>
-    <div></div>
-    <div></div>  
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div>d</div>  
-    <div></div>
-    <div></div>
-    <div></div>  
-    <div>7</div>
-    <div>8</div>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>  
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>  
-    <div>7</div>
-    <div>8</div>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>  
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>  
-    <div>7</div>
-    <div>8</div>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>  
-    <div>4</div>
-    
-  </div>
+    <script type="text/javascript">
+        var timeleft = 10;
+        var downloadTimer = setInterval(function () {
+            timeleft--;
+            document.getElementById("countdowntimer").textContent = timeleft;
+            if (timeleft <= 0)
+                clearInterval(downloadTimer);
+        }, 1000);
+
+        window.setTimeout(function(){
+            alert('start!')
+        }, 10 * 1000);
+
+
+
+
+
+
+
+
+    </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+    <!-- JavaScript -->
+
+    <script src="./assets/Javascript/game.js"></script>
 
 </body>
+
 </html>
-
-
-
-
