@@ -74,7 +74,7 @@ color: yellow;
     display: grid;
     grid-template-columns: 80px 80px 80px 80px 80px 80px ;
     grid-gap: 1px;
-    
+
     padding: 10px;
     
     
@@ -90,6 +90,20 @@ color: yellow;
    
     }
 
+#btnLogIn {
+  vertical-align: initial;
+
+}
+
+#btnSignUp {
+  vertical-align: initial;
+
+}
+
+#btnLogout {
+  vertical-align: initial;
+
+}
 
 
 #btn{
@@ -97,3 +111,4 @@ color: yellow;
   background-color: rgb(185, 105, 118);
   margin-left: 7%;
 }
+
