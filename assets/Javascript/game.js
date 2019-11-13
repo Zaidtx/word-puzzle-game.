@@ -12,6 +12,7 @@ function buildQueryURL() {
     .val()
     .trim();
 
+    
     $.ajaxSetup({
       headers: { '93ed2487': '632299bb4f685bac7a7e615a2459ce3e' }
     });
