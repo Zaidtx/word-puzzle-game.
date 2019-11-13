@@ -1,5 +1,5 @@
 
-(function() {
+
 
   // Web app's Firebase configuration
   const firebaseConfig = {
@@ -14,44 +14,63 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
+  var database = firebase.database();
+
   console.log(firebase)
+
+
+$("#btnLogin").on("click", function (event) {
+  event.preventDefaulf();
+
+const user = $("#enter-username").val().trim();
+const pass = $("#enter-password").val().trim();
+
+var newUser = {
+    user: user,
+    password: pass,
+
+
+}
+
+// adding user to firebase
+
+  database.ref().push(newUser);
+
+  $("#enter-username").val("");
+  $("#enter-password").val("");
+
+
+
+});
+
+
+database.ref().on("child_added", function(childSnapshot) {
+
+var username = childSnapshot.val().name;
+var password = childSnapshot.val().pass;
+
+console.log("user name" +name)
+
+})
+
+
+
+
+
+
+
+
+
+
 
 
 
  
 
-  const txtEmail = $('#txtEmail');
-  const txtPassword = $('#txtPassword');
-  const btnLogin = $('#btnLogin');
-  const btnSignUp = $('#btnSignUp');
-  const btnLogout = $('#btnLogout');
-
-  // add login event
-
-btnLogin.addEventListner('click', e => {
-  const email = txtEmail.value;
-  const pass = txtPassword.value;
-  const auth = firebase.auth();
-
-// sign in
-
-const promise = auth.signInWithEmailAndPassword(email,pass);
-
-promise.catch(e => console.log(e.message));
-
-});
-
-
-
-
-
-}());
 
   
-  
-  
 
-  apiKey="tbz114zIETMv2GysLCNE0JPkNkinaaND"
-  var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=apikey&limit=5");
-  4xhr.done(function(data) { console.log("success got data", data); });
+ // apiKey="tbz114zIETMv2GysLCNE0JPkNkinaaND"
+  //var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=apikey&limit=5");
+  //4xhr.done(function(data) { console.log("success got data", data); });
 
