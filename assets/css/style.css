@@ -74,6 +74,7 @@ color: yellow;
     display: grid;
     grid-template-columns: 80px 80px 80px 80px 80px 80px ;
     grid-gap: 1px;
+
     padding: 10px;
     
     
@@ -81,11 +82,12 @@ color: yellow;
   }
   
   .grid-container > div {
+   
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
-    
+   
     }
 
 #btnLogIn {
@@ -103,4 +105,10 @@ color: yellow;
 
 }
 
-/*djdjl
+
+#btn{
+  color: black;
+  background-color: rgb(185, 105, 118);
+  margin-left: 7%;
+}
+
