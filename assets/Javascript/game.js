@@ -1,6 +1,157 @@
 
 
 
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  firebaseInit();
+
+
+  launchTest();
+ 
+});
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBriYEsnpax18nummPt1PEm5rN6qD0qxx8",
+  authDomain: "forclasse-7f050.firebaseapp.com",
+  databaseURL: "https://forclasse-7f050.firebaseio.com",
+  projectId: "forclasse-7f050",
+  storageBucket: "forclasse-7f050.appspot.com",
+  messagingSenderId: "1001175965488",
+  appId: "1:1001175965488:web:6923c8aca42b8251e732f5"
+};
+
+var loadedPuzzle = null;
+
+function firebaseInit() {
+ 
+  firebase.initializeApp(firebaseConfig);
+
+  console.log("DB root: " + firebase.database().ref());
+}
+
+async function launchTest() {
+
+  firebase.database().ref("users").set({});
+
+
+  await addUser('test_user_1');
+
+  let users = await readAllUsers();
+  console.log("users: " + JSON.stringify(users));
+
+  
+  let puzzle = getSamplePuzzle1();
+
+  await launchNewPuzzle('test_user_1', puzzle);
+}
+
+async function launchNewPuzzle(username, puzzle) {  
+  //add to user
+  addPuzzle(username, puzzle);
+
+ 
+  loadedPuzzle = puzzle;
+
+
+  let users = await readUserByUsername(username);
+  console.log("user: " + JSON.stringify(users));
+
+  //launch puzzle
+  let letterDiv = null;
+  for(let i = 0; i < puzzle.rows.length; i++) {
+    for(let j = 0; j < puzzle.rows[i].length; j++) {
+      letterDiv = document.createElement('div');
+      letterDiv.className = 'puzzle-letter';
+      letterDiv.setAttribute('id', 'puzzleLetter_' + i + '_' + j);
+      letterDiv.innerHTML = puzzle.rows[i][j];
+      document.getElementById('puzzle').appendChild(letterDiv);
+    }
+  }
+
+  //start countdown
+  var timeleft = 10;
+  var downloadTimer = setInterval(function() {
+      timeleft--;
+      document.getElementById("countdowntimer").textContent = timeleft;
+      
+      
+      if(Array.from(loadedPuzzle.words.keys()).filter(function(key){ return !loadedPuzzle.words.get(key); }).length == 0) {
+        clearInterval(downloadTimer);
+        console.log("user found all words!!!");
+      }
+
+     
+      if(timeleft <= 0) {
+        clearInterval(downloadTimer);
+        console.log("user ran out of time :(");
+        
+      }
+  }, 1000);
+}
+
+async function addPuzzle(username, puzzle) {
+  let userRef = firebase.database().ref("users/" + username + "/puzzles");
+
+  await userRef.push().set(puzzle);
+}
+
+function getSamplePuzzle1() {
+  var words = new Map();
+  words.set('AIR', true);
+  words.set('BOW', true);
+  words.set('CHOICE', true);
+  words.set('CYMBAL', true);
+  words.set('FUNNY', true);
+  words.set('GIANT', true);
+  words.set('LUNG', true);
+  words.set('MUSIC', true);
+  words.set('PAGE', true);
+  words.set('TOE', true);
+  words.set('TOWEL', true);
+  words.set('TUMMY', true);
+
+  return {
+    id: 'sample1',
+    rows: [
+      'YTOWEL',
+      'GNULOA',
+      'RANMTB',
+      'CISUMM',
+      'EGAPFY',
+      'ECIOHC'
+    ],
+    words: words
+  }
+}
+
+// not done
+function getGeneratedPuzzle() {
+  return {};
+}
+
+async function addUser(username) {
+    let userRef = firebase.database().ref("users");
+
+    await userRef.push().set({
+      username: username
+    });
+
+    //DEBUG
+    console.log("userRef location: " + userRef.toString());
+}
+
+async function readAllUsers() {
+  let snapshotPromise = await firebase.database().ref("users").once('value');
+  return snapshotPromise;
+}
+
+async function readUserByUsername(username) {
+  let snapshotPromise = await firebase.database().ref("users/"+username).once('value');
+  return snapshotPromise;
+}
+
 function buildQueryURL() {
   
   const queryURL = "https://od-api.oxforddictionaries.com/api/v2";
@@ -29,24 +180,6 @@ function buildQueryURL() {
 
 
 (function() {
-
-
-  // Web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBriYEsnpax18nummPt1PEm5rN6qD0qxx8",
-    authDomain: "forclasse-7f050.firebaseapp.com",
-    databaseURL: "https://forclasse-7f050.firebaseio.com",
-    projectId: "forclasse-7f050",
-    storageBucket: "forclasse-7f050.appspot.com",
-    messagingSenderId: "1001175965488",
-    appId: "1:1001175965488:web:6923c8aca42b8251e732f5"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-  var database = firebase.database();
-
-  console.log(firebase)
 
 
 $("#btnLogin").on("click", function (event) {
