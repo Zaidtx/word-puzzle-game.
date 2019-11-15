@@ -42,7 +42,35 @@ async function launchTest() {
   console.log("users: " + JSON.stringify(users));
 
   
-  
+  let puzzle = getSamplePuzzle1();
+
+  await launchNewPuzzle('test_user_1', puzzle);
+}
+
+async function launchNewPuzzle(username, puzzle) {  
+  //add to user
+  addPuzzle(username, puzzle);
+
+ 
+  loadedPuzzle = puzzle;
+
+
+  let users = await readUserByUsername(username);
+  console.log("user: " + JSON.stringify(users));
+
+  //launch puzzle
+  let letterDiv = null;
+  for(let i = 0; i < puzzle.rows.length; i++) {
+    for(let j = 0; j < puzzle.rows[i].length; j++) {
+      letterDiv = document.createElement('div');
+      letterDiv.className = 'puzzle-letter';
+      letterDiv.setAttribute('id', 'puzzleLetter_' + i + '_' + j);
+      letterDiv.innerHTML = puzzle.rows[i][j];
+      document.getElementById('puzzle').appendChild(letterDiv);
+    }
+  }
+
+ 
 
 (function() {
 
