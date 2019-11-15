@@ -5,14 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <!-- JS -->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-    
+
     
 
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
@@ -21,8 +17,11 @@
     <title>Word Puzzle</title>
 </head>
 <body>
-    <button id="btn" type="button" class="btn btn-warning">Restart</button>
-    <button id="btn" type="button" class="btn btn-danger">Log out</button>
+   
+   <br>
+    <a href='index.html'><button id="btnLogout" class="btn btn-action">
+        QUIT <output></output>
+      </button></a>
     <br/><br/>
     <div class="grid-container">
         <div id='left'>
@@ -30,16 +29,17 @@
         </div>
 
         <div id='right'>
+
             <div id="words"></div>
 
-            <span id="countdowntimer">10</span>
+
         </div>
 
         <div id="wrap">
         </div>
             <div id="main" class="container clear-top">
                 <p>LEVEL 1 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SCORE: &nbsp; &nbsp; &nbsp;&nbsp;
-                    &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; TIMER:
+                    &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; TIMER:<span id="countdowntimer"></span>
                 </p>
             </div>
         </div>
