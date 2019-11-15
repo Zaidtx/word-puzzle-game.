@@ -70,7 +70,115 @@ async function launchNewPuzzle(username, puzzle) {
     }
   }
 
- 
+  //start countdown
+  var timeleft = 10;
+  var downloadTimer = setInterval(function() {
+      timeleft--;
+      document.getElementById("countdowntimer").textContent = timeleft;
+      
+      
+      if(Array.from(loadedPuzzle.words.keys()).filter(function(key){ return !loadedPuzzle.words.get(key); }).length == 0) {
+        clearInterval(downloadTimer);
+        console.log("user found all words!!!");
+      }
+
+     
+      if(timeleft <= 0) {
+        clearInterval(downloadTimer);
+        console.log("user ran out of time :(");
+        
+      }
+  }, 1000);
+}
+
+async function addPuzzle(username, puzzle) {
+  let userRef = firebase.database().ref("users/" + username + "/puzzles");
+
+  await userRef.push().set(puzzle);
+}
+
+function getSamplePuzzle1() {
+  var words = new Map();
+  words.set('houston', true);
+  words.set('austin', true);
+  words.set('dallas', true);
+  words.set('newyork', true);
+  words.set('miami', true);
+  words.set('chicago ', true);
+  words.set('jordan', true);
+  words.set('lebanon', true);
+  words.set('dubai', true);
+  words.set('iraq', true);
+  words.set('texas', true);
+  words.set('kuwait', true);
+
+  return {
+    id: 'sample1',
+    rows: [
+      'ATOHEL',
+      'UNUOOA',
+      'SANUTB',
+      'TISSMM',
+      'IGATFY',
+      'NCIOHC' ,
+      'MNKNOKP'
+    ],
+    words: words
+  }
+}
+
+// not done
+function getGeneratedPuzzle() {
+  return {};
+}
+
+async function addUser(username) {
+    let userRef = firebase.database().ref("users");
+
+    await userRef.push().set({
+      username: username
+    });
+
+    //DEBUG
+    console.log("userRef location: " + userRef.toString());
+}
+
+async function readAllUsers() {
+  let snapshotPromise = await firebase.database().ref("users").once('value');
+  return snapshotPromise;
+}
+
+async function readUserByUsername(username) {
+  let snapshotPromise = await firebase.database().ref("users/"+username).once('value');
+  return snapshotPromise;
+}
+
+function buildQueryURL() {
+  
+  const queryURL = "https://od-api.oxforddictionaries.com/api/v2";
+
+  
+  const queryParams = { "api-key": "632299bb4f685bac7a7e615a2459ce3e" };
+
+  
+  queryParams.q = $("#search-words")
+    .val()
+    .trim();
+
+    
+    $.ajaxSetup({
+      headers: { '93ed2487': '632299bb4f685bac7a7e615a2459ce3e' }
+    });
+
+    
+    const startGame = $("#start-game")
+    .val()
+    .trim();
+
+  if (parseInt(startGame)) {
+    queryParams.search_words = startGame + "10";
+  }
+
 
 (function() {
 
