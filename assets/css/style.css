@@ -111,14 +111,12 @@ color: yellow;
 
 }
 
-#btnSignUp {
-  vertical-align: initial;
-
-}
 
 #btnLogout {
   vertical-align: initial;
-
+  color: black;
+background-color:yellow;
+margin-left:4%;
 }
 
 
