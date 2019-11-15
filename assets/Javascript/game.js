@@ -103,6 +103,19 @@ function getSamplePuzzle1() {
   words.set('cat ', true);
 
 
+  // for (let i = 0; i < words.length; i++) {
+    for (word of words){
+      console.log(word)
+      const a = $("<div>");
+      a.addClass("words");
+      a.text(word);
+      $("#words").append(a);
+    }
+
+      
+    
+  // }
+
   return {
     id: 'sample1',
     rows: [
