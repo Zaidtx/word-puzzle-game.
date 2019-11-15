@@ -92,15 +92,15 @@ async function addPuzzle(username, puzzle) {
 
 function getSamplePuzzle1() {
   var words = new Map();
-  words.set('houston', true);
-  words.set('austin', true);
-  words.set('air', true);
-  words.set('ball', true);
-  words.set('hat', true);
-  words.set('car ', true);
-  words.set('dubai', true);
-  words.set('iraq', true);
-  words.set('cat ', true);
+  words.set('houston');
+  words.set('austin');
+  words.set('air');
+  words.set('ball');
+  words.set('hat');
+  words.set('car ');
+  words.set('dubai');
+  words.set('iraq');
+  words.set('cat ');
 
 
   // for (let i = 0; i < words.length; i++) {
