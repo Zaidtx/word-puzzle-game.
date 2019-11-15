@@ -83,7 +83,7 @@ color: yellow;
 
   #puzzle {
     display: grid;
-    grid-template-columns: 80px 80px 80px 80px 80px 80px ;
+    grid-template-columns: 60px 60px 60px 60px 60px 60px 60px ;
     grid-gap: 1px;
     padding: 10px;
   }
@@ -92,7 +92,7 @@ color: yellow;
    
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    padding: 20px 0;
+    padding: 15px 0;
     font-size: 30px;
    
     }
@@ -145,11 +145,6 @@ color: yellow;
 
 }
 
-  
-#countdowntimer{
-  font-size: 100px;
-  text-align: left;
 
-}
 
   

@@ -71,23 +71,16 @@ async function launchNewPuzzle(username, puzzle) {
   }
 
   //start countdown
-  var timeleft = 10;
+  var timeleft = 90;
   var downloadTimer = setInterval(function() {
       timeleft--;
       document.getElementById("countdowntimer").textContent = timeleft;
       
       
-      if(Array.from(loadedPuzzle.words.keys()).filter(function(key){ return !loadedPuzzle.words.get(key); }).length == 0) {
-        clearInterval(downloadTimer);
-        console.log("user found all words!!!");
-      }
 
      
-      if(timeleft <= 0) {
-        clearInterval(downloadTimer);
-        console.log("user ran out of time :(");
-        
-      }
+     
+      
   }, 1000);
 }
 
@@ -101,27 +94,25 @@ function getSamplePuzzle1() {
   var words = new Map();
   words.set('houston', true);
   words.set('austin', true);
-  words.set('dallas', true);
-  words.set('newyork', true);
-  words.set('miami', true);
-  words.set('chicago ', true);
-  words.set('jordan', true);
-  words.set('lebanon', true);
+  words.set('air', true);
+  words.set('ball', true);
+  words.set('hat', true);
+  words.set('car ', true);
   words.set('dubai', true);
   words.set('iraq', true);
-  words.set('texas', true);
-  words.set('kuwait', true);
+  words.set('cat ', true);
+
 
   return {
     id: 'sample1',
     rows: [
-      'ATOHEL',
-      'UNUOOA',
-      'SANUTB',
-      'TISSMM',
-      'IGATFY',
-      'NCIOHC' ,
-      'MNKNOKP'
+      'AIRHELK',
+      'UTUTDAC',
+      'SBALUBD',
+      'TCSHBMU',
+      'ASAHAIB',
+      'ICIRICR' ,
+      'NOTSUOHLCAQARI'
     ],
     words: words
   }
@@ -176,7 +167,7 @@ function buildQueryURL() {
     .trim();
 
   if (parseInt(startGame)) {
-    queryParams.search_words = startGame + "10";
+    queryParams.search_words = startGame + "60";
   }
 
 
