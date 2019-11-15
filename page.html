@@ -12,10 +12,7 @@
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
     
-    <script src="assets/Javascript/game.js"></script>
     
 
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
@@ -29,15 +26,17 @@
     <br/><br/>
     <div class="grid-container">
         <div id='left'>
-            <div id='puzzle'></div>
+            <div id="puzzle"></div>
         </div>
 
         <div id='right'>
+            <div id="words"></div>
+
             <span id="countdowntimer">10</span>
         </div>
 
         <div id="wrap">
-
+        </div>
             <div id="main" class="container clear-top">
                 <p>LEVEL 1 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SCORE: &nbsp; &nbsp; &nbsp;&nbsp;
                     &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; TIMER:
@@ -45,6 +44,14 @@
             </div>
         </div>
     </div>
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+    
+    <script src="assets/Javascript/game.js"></script>
 </body>
 
 </html>
