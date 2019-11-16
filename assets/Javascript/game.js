@@ -154,7 +154,7 @@ async function launchNewPuzzle(username, puzzle) {
         //use giphy to display random image with victory overlay
         // // api key to display an image if he won. 
         let query = `?api_key=${giphyAPIKey}&q=congratulations+you+win&rating=g&lang=en&limit=100`;
-        $.ajax({url: "http://api.giphy.com/v1/gifs/search"+query, success: function(result){
+        $.ajax({url: "https://api.giphy.com/v1/gifs/search"+query, success: function(result){
           //get url result
           let imageURL = JSON.stringify(result.data[Math.floor(Math.random() * 101)].images.downsized.url);
           console.log("url: " + imageURL);
@@ -175,7 +175,7 @@ async function launchNewPuzzle(username, puzzle) {
 
         //use giphy to display random image with loss overlay
         let query = `?api_key=${giphyAPIKey}&q=you+lose&rating=g&lang=en&limit=100`;
-        $.ajax({url: "http://api.giphy.com/v1/gifs/search"+query, success: function(result){
+        $.ajax({url: "https://api.giphy.com/v1/gifs/search"+query, success: function(result){
           //get url result
           let imageURL = JSON.stringify(result.data[Math.floor(Math.random() * 101)].images.downsized.url);
           console.log("url: " + imageURL);
