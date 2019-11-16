@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    
+  
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
 
+   
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
 
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
+    <script src="assets/Javascript/game.js"></script>
 
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -17,41 +22,56 @@
     <title>Word Puzzle</title>
 </head>
 <body>
-   
-   <br>
-    <a href='index.html'><button id="btnLogout" class="btn btn-action">
-        QUIT <output></output>
-      </button></a>
-    <br/><br/>
-    <div class="grid-container">
-        <div id='left'>
-            <div id="puzzle"></div>
+ <!-- had our yellow div at the botton but brandon Suggested it should be at the top so we moved it. -->
+    <div id="container">
+        <a href='index.html'><button id="btnLogout" class="btn btn-action">
+            QUIT <output></output>
+          </button></a>
+        
+        <div id="wrap" style="padding-bottom:4%;margin:2% 0 0 0">
+            <div>
+                <div style="float:left;margin-left:5%">
+                    <b>LEVEL 1</b>
+                </div>
+                <div style="float:right;margin-right:15%">
+                    TIMER: <span id="timer">01:30</span>
+                </div>
+                <div style="float:left;margin-left:15%">
+                    SCORE: <span id="score">0</span>
+                </div>
+            </div>
         </div>
 
-        <div id='right'>
-
-            <div id="words"></div>
-
-
-        </div>
-
-        <div id="wrap">
-        </div>
-            <div id="main" class="container clear-top">
-                <p>LEVEL 1 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SCORE: &nbsp; &nbsp; &nbsp;&nbsp;
-                    &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; TIMER:<span id="countdowntimer"></span>
-                </p>
+        <div class="grid-container">
+            <div id='left'>
+                <div id='wordBank'>
+                    <h5>Word Bank</h5>
+                    <div id='wordBankWords'></div>
+                </div>
+                <div id='puzzle'></div>
             </div>
         </div>
     </div>
 
+    <!-- puzzleOver -->
+    <div id="puzzleOver" style="margin:auto" hidden>
+        <div id="puzzleOverContentContainer">
+            <div id="youWin" style="margin-left:-38%" hidden>
+                <h2>Congratulations!</h2><br/>
+                <img id="youWinImage" src="#" alt="You Win!"/><br/>
+                <span style="font-size:2em;color:hotpink">You found all the words for this puzzle.</span><br/><br/>
+                Refresh to play again!
+            </div>
+            <div id="youLose" style="margin-left:8%" hidden>
+                <h2>Nice Try!</h2><br/>
+                <img id="youLoseImage" src="#" alt="You Lose!"/><br/>
+                <span style="font-size:2em;color:hotpink">You ran out of time.</span><br/><br/>
+                Refresh to play again!
+            </div>
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
-    
-    <script src="assets/Javascript/game.js"></script>
+        </div>
+        <div class="puzzle-solved" style="margin:auto"></div>
+    </div>
 </body>
 
 </html>
