@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
   launchTest();
  
 });
-
+// firbase configration
 
 const firebaseConfig = {
   apiKey: "AIzaSyBriYEsnpax18nummPt1PEm5rN6qD0qxx8",
@@ -22,10 +22,19 @@ const firebaseConfig = {
   appId: "1:1001175965488:web:6923c8aca42b8251e732f5"
 };
 
+//globals
 var loadedPuzzle = null;
+var userScore = 0;
+var mouseDownLetter = null;
+var mouseUpLetter = null;
+var mouseInputLetters = [];
+var giphyAPIKey = 'tbz114zIETMv2GysLCNE0JPkNkinaaND';
+
+
 
 function firebaseInit() {
  
+  // Initialize the Firbase
   firebase.initializeApp(firebaseConfig);
 
   console.log("DB root: " + firebase.database().ref());
@@ -35,15 +44,18 @@ async function launchTest() {
 
   firebase.database().ref("users").set({});
 
-
+//add test user 1
   await addUser('test_user_1');
 
+  //DEBUG
   let users = await readAllUsers();
   console.log("users: " + JSON.stringify(users));
 
-  
+   //makes  a new puzzle for test_user 1
   let puzzle = getSamplePuzzle1();
 
+  
+  //launch sample puzzle
   await launchNewPuzzle('test_user_1', puzzle);
 }
 
@@ -70,19 +82,39 @@ async function launchNewPuzzle(username, puzzle) {
     }
   }
 
-  //start countdown
-  var timeleft = 90;
-  var downloadTimer = setInterval(function() {
-      timeleft--;
-      document.getElementById("countdowntimer").textContent = timeleft;
-      
-      
+  let wordDiv = null;
+  let words = Array.from(puzzle.words.keys());
+  for(let i = 0; i < words.length; i++) {
+    wordDiv = document.createElement('div');
+    wordDiv.setAttribute('id', 'puzzleWord_' + i);
+    wordDiv.innerHTML = words[i];
+    document.getElementById('wordBankWords').appendChild(wordDiv);
+  }
 
-     
-     
-      
-  }, 1000);
-}
+//
+
+//set up mouse listening for user word input
+$("body").find(".puzzle-letter").on('mousedown', function(){
+  console.log("mouse down on letter: " + $(this).html() + ", id: " + $(this).prop('id'));
+  //update global
+  mouseDownLetter = $(this);
+});
+
+$("body").find(".puzzle-letter").on('mouseup', function(){
+  if(mouseDownLetter == null) { return; }
+  console.log("mouse up on letter: " + $(this).html() + ", id: " + $(this).prop('id'));
+  //update global
+  mouseUpLetter = $(this);
+
+  //get resulting word from mouse up/down letters
+  let inputWord = getWordFromMouseLetterDivs();
+  //send word for processing
+  processUserWordInput(inputWord);
+  //clear mouse letters
+  mouseDownLetter = null;
+  mouseUpLetter = null;
+});
+
 
 async function addPuzzle(username, puzzle) {
   let userRef = firebase.database().ref("users/" + username + "/puzzles");
