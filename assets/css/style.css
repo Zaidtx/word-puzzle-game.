@@ -1,52 +1,119 @@
 * {box-sizing: border-box}
 
-
 #form{
-
-height: 100px;
-width: 40%;
-text-align: center;
-margin-left: 30%;
-
-
+  height: 100px;
+  width: 40%;
+  text-align: center;
+  margin-left: 30%;
 }
+
 body{
   background-size: cover;
-    background-image: url(../images/istockphoto-838218772-612x612.jpg)
-    
-    
+  background-image: url(../images/istockphoto-838218772-612x612.jpg)    
 }
+
 h1{
-    text-align: center;
-   
-   
+  text-align: center;
 }
+
+.puzzle-solved {
+  position: fixed;
+  left: 32%;
+  top: 150px;
+  transform: translate(-13%, 0%);
+  border: 16px solid black; /* Light grey */
+  width: 50%;
+  height: 75%;
+  background-color: white;
+  z-index:10;
+}
+
+.found-word {
+  text-decoration: line-through;
+  color: lightgray;
+}
+
+#puzzle .found-word-letter {
+  background: rgb(211, 11, 11);
+  color:black;
+}
+
+.puzzle-letter {
+  -webkit-touch-callout: none; /*  for iOS Safari from google */
+    -webkit-user-select: none; /*  for Safari from google */
+     -khtml-user-select: none; /* used for Konqueror HTML */
+       -moz-user-select: none; /* used for  Old versions of Firefox */
+        -ms-user-select: none; /* for Internet Explorer/Edge */
+            user-select: none; /*for  Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+#puzzleOverContentContainer {
+  position: fixed;
+  left: 40%;
+  top: 193px;
+  text-align: center;
+  height: 88px;
+  z-index:11;
+}
+
+#puzzleOverContentContainer img {
+  width:300px;
+  height:250px;
+  object-fit: scale-down;
+}
+
+#container.disabler:after {
+  content: "";
+  display: block;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(255, 247, 0, 0.746);
+}
+
 /* Full-width input fields */
-  input[type=text], input[type=password] {
+input[type=text], input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
   background: #e2ca5f;
- color: rgb(30, 79, 107);
- }
-
-
-
+  color: rgb(30, 79, 107);
+}
 
 input[type=text]:focus, input[type=password]:focus {
   background-color: rgb(196, 181, 181);
   outline: none;
-text-align: center;
-
+  text-align: center;
 }
 
-a{
+a {
   text-align: center;
   font-size: 200%;
+  color: yellow;
+}
 
-color: yellow;
+#wordBank {
+  float: left;
+  clear: both;
+  background-color: white;
+  margin:2% 10% 0 -10%;
+  padding:2% 10% 10% 10%;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+#wordBank h5 {
+  padding-bottom:8%;
+}
+
+#wordBankWords > div {
+  padding-top:8%;
 }
 
 /* Clear floats */
@@ -83,7 +150,7 @@ color: yellow;
 
   #puzzle {
     display: grid;
-    grid-template-columns: 60px 60px 60px 60px 60px 60px 60px ;
+    grid-template-columns: 80px 80px 80px 80px 80px 80px ;
     grid-gap: 1px;
     padding: 10px;
   }
@@ -92,7 +159,7 @@ color: yellow;
    
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    padding: 15px 0;
+    padding: 20px 0;
     font-size: 30px;
    
     }
@@ -100,6 +167,7 @@ color: yellow;
 
     #left {
       grid-area: left;
+      margin-left:auto;
     }
 
     #right {
@@ -111,12 +179,15 @@ color: yellow;
 
 }
 
+#btnSignUp {
+  vertical-align: initial;
+
+}
 
 #btnLogout {
   vertical-align: initial;
-  color: black;
-background-color:yellow;
-margin-left:4%;
+  background-color: #e2ca5f;
+
 }
 
 
@@ -135,12 +206,25 @@ margin-left:4%;
   height: 48%;
   width: 66%;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 1.8em;
   color:black;
   text-align: center;
   margin-left: 17%;
   grid-area: wrap;
 
+}
+
+  
+#countdowntimer{
+  font-size: 200px;
+  text-align: center;
+
+}
+
+  
+#countdowntimer{
+  font-size: 200px;
+  text-align: center;
 }
 
 
