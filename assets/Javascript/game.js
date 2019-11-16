@@ -10,8 +10,13 @@ document.addEventListener("DOMContentLoaded", function() {
   launchTest();
   
 });
+
 // line 10 until 39 we're calling our Firebase and giphy api's 
 //zaid's firebase api 
+
+// firbase configration
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyBriYEsnpax18nummPt1PEm5rN6qD0qxx8",
   authDomain: "forclasse-7f050.firebaseapp.com",
@@ -23,16 +28,28 @@ const firebaseConfig = {
 };
 
 //globals
+
 // null means no value in javascript 
+
 var loadedPuzzle = null;
 var userScore = 0;
 var mouseDownLetter = null;
 var mouseUpLetter = null;
 var mouseInputLetters = [];
+
 var giphyAPIKey = 'tbz114zIETMv2GysLCNE0JPkNkinaaND'; // makah's api key. FIRST API
 
 function firebaseInit() {
   // Initialize Firebase
+
+var giphyAPIKey = 'tbz114zIETMv2GysLCNE0JPkNkinaaND';
+
+
+
+function firebaseInit() {
+ 
+  // Initialize the Firbase
+
   firebase.initializeApp(firebaseConfig);
 
   console.log("DB root: " + firebase.database().ref());
@@ -44,21 +61,38 @@ async function launchTest() {
  
   firebase.database().ref("users").set({});
 
+
   //add test user 1
+
+//add test user 1
+
   await addUser('test_user_1');
   // addUser('test_user_2');
+
 
   //DEBUG 
   let users = await readAllUsers();
   console.log("users: " + JSON.stringify(users));
 
   //makes  a new puzzle for test_user_1
+
+  //DEBUG
+  let users = await readAllUsers();
+  console.log("users: " + JSON.stringify(users));
+
+   //makes  a new puzzle for test_user 1
+
   let puzzle = getSamplePuzzle1();
  
  
 
+
   //launch sample puzzle
   // the await  expression causes async function execution to pause until a Promise is settled ( google Explaination ) 
+
+  
+  //launch sample puzzle
+
   await launchNewPuzzle('test_user_1', puzzle);
 }
 // what async do is it always returns or promises to return a value. 
@@ -97,6 +131,7 @@ async function launchNewPuzzle(username, puzzle) {
     wordDiv.innerHTML = words[i];
     document.getElementById('wordBankWords').appendChild(wordDiv); // word bank is where the words are gonna be in. 
   }
+
 
   //set up mouse listening for user word input
   // mouse-down 104-107
@@ -248,6 +283,41 @@ function updateUserScore(additionalPoints) {
   userScore += additionalPoints;
   $('#score').text(userScore);
 }
+
+  let wordDiv = null;
+  let words = Array.from(puzzle.words.keys());
+  for(let i = 0; i < words.length; i++) {
+    wordDiv = document.createElement('div');
+    wordDiv.setAttribute('id', 'puzzleWord_' + i);
+    wordDiv.innerHTML = words[i];
+    document.getElementById('wordBankWords').appendChild(wordDiv);
+  }
+
+//
+
+//set up mouse listening for user word input
+$("body").find(".puzzle-letter").on('mousedown', function(){
+  console.log("mouse down on letter: " + $(this).html() + ", id: " + $(this).prop('id'));
+  //update global
+  mouseDownLetter = $(this);
+});
+
+$("body").find(".puzzle-letter").on('mouseup', function(){
+  if(mouseDownLetter == null) { return; }
+  console.log("mouse up on letter: " + $(this).html() + ", id: " + $(this).prop('id'));
+  //update global
+  mouseUpLetter = $(this);
+
+  //get resulting word from mouse up/down letters
+  let inputWord = getWordFromMouseLetterDivs();
+  //send word for processing
+  processUserWordInput(inputWord);
+  //clear mouse letters
+  mouseDownLetter = null;
+  mouseUpLetter = null;
+});
+
+
 
 async function addPuzzle(username, puzzle) {
   let userRef = firebase.database().ref("users/" + username + "/puzzles");
