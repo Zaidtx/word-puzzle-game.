@@ -22,26 +22,25 @@ Role:write Javascript
   - Github: andres1705
   - LinkedIn
 - Developer 3: Zaid
- Role:write html & css
+ Role:write html & css & Javascript
   - Portfolio
   - Github:Zaidtx
   - LinkedIn
 
 ## Animated Gifs/Pictures of App
 
-- Place various screens of your app here after they have been built
+- <a href="https://imgflip.com/gif/3h1d4x"><img src="https://i.imgflip.com/3h1d4x.gif" title="made at imgflip.com"/></a>
 
 ## Tech Stack
 
-- What languages is it written with
-- What libraries are used
+- languages written with: Javascript, HTML,CSS
+- libraries are used : Jquery
 - Update at the end of the project
 
 ## APIs
 
-- List the two apis
-- Update it has the project evolves
-- make sure its accurate at the end
+- giphy.com, oxford dictionary api
+
 
 ## MVP
 
@@ -53,8 +52,8 @@ Role:write Javascript
 
 ## Future Development
 
-- Whats been tabled
-- Update this after the project has been completed
+- Adding new levels to the game, user will be able to add more words,ability to share your results in social media
+
 
 ## Credits/Resources
 
