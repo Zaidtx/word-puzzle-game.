@@ -1,5 +1,7 @@
 # word-puzzle-game
-# Name of Project
+
+# Link of the Game.
+https://zaidtx.github.io/word-puzzle-game./
 
 > [Live Site](Put the deployed link here once you have it)
 
